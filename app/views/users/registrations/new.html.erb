@@ -7,12 +7,22 @@
 
     <div class="field">
       <%= f.label :name, "Nombre" %><br />
-      <%= f.email_field :name, autofocus: true, autocomplete: "email" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
       <%= f.label :email, "Email" %><br />
       <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number, "Número de celular" %><br />
+      <%= f.text_field :phone_number, autocomplete: "Número de celular" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :profile_pic, "Sube una foto de perfil (opcional)" %><br />
+      <%= f.file_field :profile_pic %>
     </div>
 
     <div class="field">
