@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 2.5'
 # !!!EXTRA GEMS!!!
 
 gem 'devise'
-gem 'aws-sdk-rails', '~> 3'
 gem 'aws-sdk-s3', '~> 1'
 
 # !!!EXTRA GEMS!!!
