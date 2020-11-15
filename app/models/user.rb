@@ -6,4 +6,8 @@ class User < ApplicationRecord
          :confirmable
 
   has_one_attached :profile_pic
+
+  def profile_pic_url
+    self.profile_pic.attachment.service_url
+  end
 end
