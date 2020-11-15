@@ -28,9 +28,19 @@ Rails.application.configure do
   end
 
   # devise config
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {address: 'localhost', port: 1025}
+  config.action_mailer.smtp_settings = {
+    user_name:            ENV['EMAIL_USER'],
+    password:             ENV['EMAIL_PASSWORD'],
+    address:              'smtp.gmail.com',
+    domain:               'localhost:3000',
+    port:                 587,
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
 
