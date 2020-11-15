@@ -1,4 +1,16 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h3>¡Bienvenid@, <%= current_user.name %>!</h3>
+<div id="profile-pic">
+    <img class="w-100" src="<%= current_user.profile_pic_url %>" alt="Foto de perfil">
+</div>
+
+<div class="text-center d-flex flex-column">
+    <button class="btn btn-success">¡Agenda una hora aquí!</button>
+    <p>ó</p>
+    <a href="https://wa.link/mdi962" target="blank">Contáctame directamente por WhatsApp</a>
+</div>
+
+
+
+
 
 <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
