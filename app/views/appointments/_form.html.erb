@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description, "Descripción" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
     <%= form.label :service_id, "Elija el tipo de servicio" %>
     <%= form.collection_select(:service_id, @services, :id, :name) %>
   </div>

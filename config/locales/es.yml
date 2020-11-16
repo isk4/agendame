@@ -16,7 +16,7 @@ es:
         password_confirmation: Reingresa tu contraseña
         profile_pic: Foto de perfil
       appointment:
-        description: Descripción
+        service_id: Servicio
         start: Inicio
         end: Fin
         user_id: Usuario
