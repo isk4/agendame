@@ -1,5 +1,13 @@
-<h1>Nueva cita</h1>
+<h1 class="text-center">Nueva cita</h1>
 
-<%= render 'form', appointment: @appointment %>
+<div class="d-flex justify-content-around">
+    <div id="calendar"></div>
+    <%= render 'form', appointment: @appointment %>
+</div>
+
 
 <%= link_to 'Atrás', root_path %>
+
+<script>
+    renderCalendar();
+</script>

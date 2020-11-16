@@ -2,10 +2,20 @@
 # yarn lockfile v1
 
 
+"@fortawesome/fontawesome-free@^5.15.1":
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.1.tgz#ccfef6ddbe59f8fe8f694783e1d3eb88902dc5eb"
+  integrity sha512-OEdH7SyC1suTdhBGW91/zBfR6qaIhThbcN8PUXtXilY4GYnSBbVqOntdHbC1vXwsDnX0Qix2m2+DSU1J51ybOQ==
+
 bootstrap@^4.5.3:
   version "4.5.3"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.3.tgz#c6a72b355aaf323920be800246a6e4ef30997fe6"
   integrity sha512-o9ppKQioXGqhw8Z7mah6KdTYpNQY//tipnkxppWhPbiSWdD+1raYsnhwEZjkTHYbGee4cVQ0Rx65EhOY/HNLcQ==
+
+fullcalendar@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-5.4.0.tgz#079e6ff9ffb17f7ec5809ada5e352e6cbc3ba5c9"
+  integrity sha512-TYAycz4vCrcBpZQYc1AJA8C5bZD1rKEr1+2LL2AZ/TW5Ga+FSu88OTo8/Q0mP469LzBXNbp3AXn1TQv9UKDW6g==
 
 jquery@^3.5.1:
   version "3.5.1"

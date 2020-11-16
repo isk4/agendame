@@ -12,6 +12,9 @@
 //
 //= require jquery/dist/jquery.min
 //= require bootstrap/dist/js/bootstrap.bundle.min
+//= require @fortawesome/fontawesome-free/js/all.min
+//= require fullcalendar/main
+//= require fullcalendar/locales/es
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
