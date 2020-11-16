@@ -1,16 +1,19 @@
-<h3>¡Bienvenid@, <%= current_user.name %>!</h3>
-<div id="profile-pic">
-    <img class="w-100" src="<%= current_user.profile_pic_url %>" alt="Foto de perfil">
+<div class="container">
+    <h3>¡Bienvenid@, <%= current_user.name %>!</h3>
+
+    <div id="profile-pic">
+        <img class="w-100" src="<%= current_user.profile_pic_url %>" alt="Foto de perfil">
+    </div>
+
+    <div class="my-4 text-center d-flex flex-column">
+        <button class="btn btn-success py-3 font-weight-bold">¡Agenda una hora aquí!</button>
+        <p class="my-4">ó</p>
+        <a class="btn btn-outline-info py-3" href="https://wa.link/mdi962" target="blank">Contáctame directamente por WhatsApp</a>
+    </div>
+
+    <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
 </div>
 
-<div class="text-center d-flex flex-column">
-    <button class="btn btn-success">¡Agenda una hora aquí!</button>
-    <p>ó</p>
-    <a href="https://wa.link/mdi962" target="blank">Contáctame directamente por WhatsApp</a>
-</div>
 
 
 
-
-
-<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
