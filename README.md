@@ -1,24 +1,5 @@
-# README
+# Proyecto final - Agéndame
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Link al tablero del proyecto](https://github.com/isk4/agendame/projects/1)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Link al proyecto en Heroku](https://secret-dusk-48395.herokuapp.com/)
