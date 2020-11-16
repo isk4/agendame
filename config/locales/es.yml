@@ -9,7 +9,8 @@ es:
         name: Nombre
         email: Email
         phone_number: Número de celular
-        password_confirmation: Confirmación de contraseña
+        password: Contraseña
+        password_confirmation: Reingresa tu contraseña
         profile_pic: Foto de perfil
     errors:
       messages:
@@ -117,7 +118,7 @@ es:
       month: Mes
       year: Año
   errors:
-    format: "%{attribute} %{message}"
+    format: "El campo \"%{attribute}\" %{message}"
     messages:
       accepted: debe ser aceptado
       blank: no puede estar en blanco
