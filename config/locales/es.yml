@@ -1,5 +1,16 @@
 es:
   activerecord:
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
+    attributes:
+      user:
+        name: Nombre
+        email: Email
+        phone_number: Número de celular
+        password_confirmation: Confirmación de contraseña
+        profile_pic: Foto de perfil
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
