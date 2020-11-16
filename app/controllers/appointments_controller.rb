@@ -15,6 +15,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+    @services = Service.all
   end
 
   # GET /appointments/1/edit
@@ -70,6 +71,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:description, :start, :end, :user_id)
+      params.require(:appointment).permit(:description, :start, :end, :user_id, :service_id)
     end
 end

@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :service_id, "Elija el tipo de servicio" %>
+    <%= form.collection_select(:service_id, @services, :id, :name) %>
+  </div>
+
+  <div class="field">
     <%= form.label :start, "Inicio" %>
     <%= form.datetime_select :start %>
   </div>
