@@ -1,5 +1,6 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
 function renderCalendar() {
 
     fetch("/appointments.json")
@@ -36,5 +37,5 @@ function renderCalendar() {
         console.log(data);
     }).catch(error => {
         console.log(error.messages);
-    })
+    });
 }
