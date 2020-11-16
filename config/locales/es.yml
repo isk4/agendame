@@ -4,6 +4,9 @@ es:
       user:
         one: Usuario
         other: Usuarios
+      appointment:
+        one: Cita
+        other: Citas
     attributes:
       user:
         name: Nombre
@@ -12,6 +15,11 @@ es:
         password: Contraseña
         password_confirmation: Reingresa tu contraseña
         profile_pic: Foto de perfil
+      appointment:
+        description: Descripción
+        start: Inicio
+        end: Fin
+        user_id: Usuario
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'

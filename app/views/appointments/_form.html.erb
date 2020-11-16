@@ -12,26 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description, "Descripción" %>
     <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :start %>
+    <%= form.label :start, "Inicio" %>
     <%= form.datetime_select :start %>
   </div>
 
   <div class="field">
-    <%= form.label :end %>
+    <%= form.label :end, "Fin" %>
     <%= form.datetime_select :end %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Agendar" %>
   </div>
 <% end %>
