@@ -14,7 +14,7 @@ Service.create(
         },
         {
             name: "Corte y brushing",
-            duration: 45
+            duration: 60
         },
         {
             name: "Tintura global",

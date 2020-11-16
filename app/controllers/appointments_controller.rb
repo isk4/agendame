@@ -26,7 +26,6 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-    byebug
     @appointment.user = current_user
     @appointment.end = @appointment.start + @appointment.duration_in_minutes
 
