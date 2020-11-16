@@ -26,7 +26,9 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
+    byebug
     @appointment.user = current_user
+    @appointment.end = @appointment.start + @appointment.duration_in_minutes
 
     respond_to do |format|
       if @appointment.save
@@ -71,6 +73,13 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:start, :end, :user_id, :service_id)
+      p = params.require(:appointment).permit(:date, :time, :service_id)
+      date = "#{p["date(3i)"]}-#{p["date(2i)"]}-#{p["date(1i)"]}"
+      time = "#{p["time(4i)"]}:#{p["time(5i)"]} -0300"
+
+      return {
+        start: DateTime.parse(date + " " + time),
+        service_id: p["service_id"]
+      }
     end
 end

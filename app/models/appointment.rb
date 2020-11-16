@@ -5,4 +5,8 @@ class Appointment < ApplicationRecord
   def service_name
     self.service.name
   end
+
+  def duration_in_minutes
+    self.service.duration.minutes
+  end
 end
