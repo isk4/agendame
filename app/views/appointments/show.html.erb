@@ -1,22 +1,17 @@
 <p>
-  <strong>Description:</strong>
+  <strong>Tipo de servicio:</strong>
   <%= @appointment.service_name %>
 </p>
 
 <p>
-  <strong>Start:</strong>
-  <%= @appointment.start %>
+  <strong>Inicio de la cita:</strong>
+  <%= @appointment.start.to_s[0..15] %>
 </p>
 
 <p>
-  <strong>End:</strong>
-  <%= @appointment.end %>
+  <strong>Término de la cita:</strong>
+  <%= @appointment.end.to_s[0..15] %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @appointment.user %>
-</p>
-
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+<%#= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Volver al inicio', root_path %>

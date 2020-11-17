@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :time, "Hora" %>
-    <%= form.time_select :time %>
+    <%= form.select(:time, @available_hours) %>
   </div>
 
   <div class="actions">

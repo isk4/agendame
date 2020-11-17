@@ -21,6 +21,10 @@ class AppointmentsController < ApplicationController
   def new
     @appointment = Appointment.new
     @services = Service.all
+    @available_hours = [
+      "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00",
+      "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"
+    ]
   end
 
   # GET /appointments/1/edit
@@ -36,7 +40,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to @appointment, notice: '¡Tu cita fue agendada exitosamente!' }
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new }
@@ -79,7 +83,7 @@ class AppointmentsController < ApplicationController
     def appointment_params
       p = params.require(:appointment).permit(:date, :time, :service_id)
       date = "#{p["date(3i)"]}-#{p["date(2i)"]}-#{p["date(1i)"]}"
-      time = "#{p["time(4i)"]}:#{p["time(5i)"]} -0300"
+      time = "#{p["time"]} -0300"
 
       return {
         start: DateTime.parse(date + " " + time),
