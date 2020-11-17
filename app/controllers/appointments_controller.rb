@@ -4,7 +4,12 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    if params[:date].present?
+      date = Date.parse(params[:date])
+      @appointments = Appointment.where(start: date.all_day)
+    else
+      @appointments = Appointment.all
+    end
   end
 
   # GET /appointments/1
