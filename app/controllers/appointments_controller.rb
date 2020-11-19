@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /appointments
   # GET /appointments.json
@@ -8,7 +9,7 @@ class AppointmentsController < ApplicationController
       date = Date.parse(params[:date])
       @appointments = Appointment.of_date(date)
     else
-      @appointments = Appointment.all
+      @appointments = Appointment.where(user_id: current_user.id)
     end
   end
 
