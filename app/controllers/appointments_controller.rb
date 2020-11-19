@@ -40,6 +40,9 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
+
+        prueba = AppointmentMailer.with(appointment: @appointment).confirmation.deliver_now
+
         format.html { redirect_to @appointment, notice: '¡Tu cita fue agendada exitosamente!' }
         format.json { render :show, status: :created, location: @appointment }
       else

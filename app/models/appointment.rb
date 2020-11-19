@@ -19,4 +19,8 @@ class Appointment < ApplicationRecord
   def client_phone_number
     self.user.phone_number
   end
+
+  def client_email
+    self.user.email
+  end
 end

@@ -1,0 +1,12 @@
+<p>¡Hola, <%= @appointment.client_name %>!</p>
+
+<p>Te está llegando este correo como respaldo y confirmación de los datos de la cita que acabas de agendar.</p>
+
+<ul>
+  <li><strong>Fecha:</strong> <%= @appointment.start.to_s[0..10] %></li>
+  <li><strong>Hora de inicio:</strong> <%= @appointment.start.to_s[10..15] %></li>
+  <li><strong>Tipo de servicio:</strong> <%= @appointment.service_name %></li>
+  <li> <strong>Hora estimada de término:</strong> <%= @appointment.end.to_s[10..15] %></li>
+</ul>
+
+<p>En caso de cualquier consulta, no dudes en contactarme por WhatsApp.</p>

@@ -27,7 +27,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # devise mailer config
+  # Action Mailer config
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
@@ -41,6 +41,14 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true
   }
+
+  # MAILGUN CONFIG | TO BE IMPLEMENTED
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: 'd2811bf361c9b0ad1ec271bb346b8de5-2af183ba-17496928',
+  #   domain: 'sandboxa7737fbf36564212bb09a2d2e2ff3ce8.mailgun.org',
+  #   # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
+  # }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
 
