@@ -13,12 +13,18 @@
  *= require bootstrap/dist/css/bootstrap.min
  *= require @fortawesome/fontawesome-free/css/all.min
  *= require fullcalendar/main.min
- *= require_tree .
  *= require_self
  */
 
  #navbar {
      background-color:#315a74;
+ }
+
+ #profile-pic {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     overflow: hidden;
  }
 
  #page-content {

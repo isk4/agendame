@@ -20,6 +20,8 @@ es:
         start: Inicio
         end: Fin
         user_id: Usuario
+        user: Cliente
+        service: Tipo de servicio
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'

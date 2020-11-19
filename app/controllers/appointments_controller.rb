@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
   def index
     if params[:date].present?
       date = Date.parse(params[:date])
-      @appointments = Appointment.where(start: date.all_day)
+      @appointments = Appointment.of_date(date)
     else
       @appointments = Appointment.all
     end

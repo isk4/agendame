@@ -62,5 +62,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # !!!EXTRA GEMS!!!
 
 gem 'devise'
+
 gem 'aws-sdk-s3', '~> 1'
+
 gem "activeadmin", "~> 2.8"
+
+gem "active_skin", "~> 0.0.13"
