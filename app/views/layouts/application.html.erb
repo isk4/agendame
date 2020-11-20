@@ -7,9 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
   </head>
 
-  <body>
+  <body id="body">
 
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
@@ -22,8 +24,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <% if user_signed_in? %>
             <div class="navbar-nav ml-auto">
-              <%= link_to "Mis citas", appointments_path, class: "nav-link" %>
-              <%= link_to "Editar cuenta", edit_user_registration_path, class: "nav-link active" %>
+              <%= link_to "Inicio", root_path, class: "nav-link #{ yield :home }" %>
+              <%= link_to "Mis citas", appointments_path, class: "nav-link #{ yield :appointments }" %>
+              <%= link_to "Agendar", new_appointment_path, class: "nav-link #{ yield :new_appointment }" %>
+              <%= link_to "Editar cuenta", edit_user_registration_path, class: "nav-link #{ yield :edit_user }" %>
               <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
             </div>  
           <% end %>
@@ -32,11 +36,13 @@
     </nav>
 
     <div id="page-content">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
+        <p class="alert <%= "alert-dark" if notice.present? %>"><%= notice %></p>
+        <p class="alert <%= "alert-dark" if alert.present? %>"><%= alert %></p>
       <%= yield %>
     </div>
 
+    <footer>
+      <p class="text-right mr-3">Hecho por Iska.</p>
+    </footer>
   </body>
 </html>

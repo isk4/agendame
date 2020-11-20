@@ -1,10 +1,13 @@
-<div class="d-flex justify-content-around">
-    <div class="w-50" id="calendar"></div>
-    <%= render 'form', appointment: @appointment %>
+<%= provide :new_appointment, "active" %>
+
+<h2 class="m-5">Agendar:</h2>
+
+<div class="d-flex flex-column-reverse flex-md-row justify-content-around">
+    <div class="mx-auto" id="calendar"></div>
+    <div class="mx-auto pb-5">
+        <%= render 'form', appointment: @appointment %>
+    </div>
 </div>
-
-
-<%= link_to 'Atrás', root_path %>
 
 <script>
     renderCalendar();

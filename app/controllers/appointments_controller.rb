@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
       date = Date.parse(params[:date])
       @appointments = Appointment.of_date(date)
     else
-      @appointments = Appointment.where(user_id: current_user.id)
+      @appointments = Appointment.where(user_id: current_user.id).order(start: :desc)
     end
   end
 

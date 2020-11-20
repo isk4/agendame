@@ -1,27 +1,27 @@
-<div class="text-center p-3">
+<div class="text-center mx-auto w-50">
 
   <h2>Ingreso</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-group" }) do |f| %>
     <div class="field">
       <%= f.label :email, "Email" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :password, "Contraseña" %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="field">
-        <%= f.check_box :remember_me %>
+        <%= f.check_box :remember_me, class: "form-check-input" %>
         <%= f.label :remember_me, "Recordar mi ingreso" %>
       </div>
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Ingresar" %>
+      <%= f.submit "Ingresar", class: "btn btn-outline-secondary" %>
     </div>
   <% end %>
 

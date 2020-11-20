@@ -16,6 +16,10 @@
  *= require_self
  */
 
+ #body {
+    font-family: 'Quicksand', sans-serif;
+ }
+
  #navbar {
      background-color:#315a74;
  }
@@ -42,4 +46,15 @@
 
  .field {
      margin: 20px 0 20px 0;
+ }
+
+ #calendar {
+    width: 50%;
+ }
+
+ @media (max-width: 768px) {
+     #calendar {
+         width: 80%;
+         margin-bottom: 30px;
+     }
  }
