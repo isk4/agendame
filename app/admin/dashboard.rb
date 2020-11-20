@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
             Appointment.of_date(Date.today).map do |appointment|
               tr do
-                td appointment.start.to_s[10..15] + " - " + appointment.end.to_s[10..15]
+                td appointment.start_time + " - " + appointment.end_time
                 td appointment.client_name
                 td appointment.service_name
                 td appointment.client_phone_number

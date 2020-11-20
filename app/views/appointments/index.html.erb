@@ -9,7 +9,6 @@
         <th>Fecha</th>
         <th>Servicio</th>
         <th>Hora</th>
-        <th></th>
         <th>Opciones</th>
         <th></th>
       </tr>
@@ -20,8 +19,7 @@
         <tr>
           <td><%= appointment.start.to_s[0..10] %></td>
           <td><%= appointment.service_name %></td>
-          <td><%= appointment.start.to_s[10..15] %></td>
-          <td><%= link_to 'Ver más detalles', appointment %></td>
+          <td><%= appointment.start_time %></td>
           <td><%= link_to 'Editar', edit_appointment_path(appointment) %></td>
           <td><%= link_to 'Eliminar', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

@@ -1,6 +1,20 @@
-<h1>Editing Appointment</h1>
+<%= provide :new_appointment, "active" %>
 
-<%= render 'form', appointment: @appointment %>
+<h2 class="m-5">
+  Editando cita: <%= @appointment.service_name %>
+  el <%= @appointment.formatted_date %>
+  a las <%= @appointment.formatted_date %>
+</h2>
 
-<%= link_to 'Show', @appointment %> |
+<div class="d-flex flex-column-reverse flex-md-row justify-content-around">
+    <div class="mx-auto" id="calendar"></div>
+    <div class="mx-auto pb-5">
+        <%= render 'form', appointment: @appointment %>
+    </div>
+</div>
+
 <%= link_to 'Atrás', :back, class: "btn btn-light font-weight-bold mt-3 ml-5" %>
+
+<script>
+    renderCalendar();
+</script>

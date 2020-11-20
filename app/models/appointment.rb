@@ -23,4 +23,16 @@ class Appointment < ApplicationRecord
   def client_email
     self.user.email
   end
+
+  def formatted_date
+    self.start.strftime("%d-%m-%Y")
+  end
+
+  def start_time
+    self.start.to_s[10..15]
+  end
+
+  def end_time
+    self.end.to_s[10..15]
+  end
 end
