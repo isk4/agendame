@@ -65,4 +65,4 @@ gem 'devise'
 gem 'aws-sdk-s3', '~> 1'
 gem "activeadmin", "~> 2.8"
 gem "active_skin", "~> 0.0.13"
-gem 'mailgun-ruby', '~>1.1.6'
+# gem 'mailgun-ruby', '~>1.1.6'
