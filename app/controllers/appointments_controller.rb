@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_services, only: [:new, :edit]
   before_action :set_available_hours, only: [:new, :edit]
 
@@ -11,7 +11,8 @@ class AppointmentsController < ApplicationController
       date = Date.parse(params[:date])
       @appointments = Appointment.of_date(date)
     else
-      @appointments = Appointment.where(user_id: current_user.id).order(start: :desc)
+      #@appointments = Appointment.where(user_id: current_user.id).order(start: :desc)
+      @appointments = Appointment.all
     end
   end
 

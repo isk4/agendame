@@ -3,7 +3,7 @@
 
 function renderCalendar() {
 
-    fetch("/appointments.json")
+    fetch('/appointments.json')
     .then(response => {
         if (response.ok) {
             return response.json();
@@ -14,6 +14,7 @@ function renderCalendar() {
         let calendarDiv = document.getElementById('calendar');
         let calendar = new FullCalendar.Calendar(calendarDiv, {
             events: data,
+            eventColor: '#ff543e',
             locale: 'es',
             initialView: 'timeGridWeek',
             themeSystem: 'bootstrap',
