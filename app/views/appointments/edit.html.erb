@@ -1,10 +1,13 @@
 <%= provide :new_appointment, "active" %>
 
-<h2 class="m-5">
-  Editando cita: <%= @appointment.service_name %>
-  el <%= @appointment.formatted_date %>
-  a las <%= @appointment.formatted_date %>
+<h2 class="ml-5">Reagendando cita:
 </h2>
+<p class="h2 ml-5">
+    <%= @appointment.service_name %>
+    el <%= @appointment.formatted_date %>
+    a las <%= @appointment.start_time %>
+</p>
+
 
 <div class="d-flex flex-column-reverse flex-md-row justify-content-around">
     <div class="mx-auto" id="calendar"></div>
@@ -13,8 +16,9 @@
     </div>
 </div>
 
-<%= link_to 'Atrás', :back, class: "btn btn-light font-weight-bold mt-3 ml-5" %>
+<%= link_to 'Volver atrás', :back, class: "btn btn-outline-dark font-weight-bold mt-3 ml-5 px-5" %>
 
 <script>
     renderCalendar();
+    getAvailableHours();
 </script>

@@ -20,7 +20,7 @@
           <td><%= appointment.formatted_date %></td>
           <td><%= appointment.service_name %></td>
           <td><%= appointment.start_time %></td>
-          <td><%= link_to 'Editar', edit_appointment_path(appointment) %></td>
+          <td><%= link_to 'Reagendar', edit_appointment_path(appointment) %></td>
           <td><%= link_to 'Eliminar', appointment, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar la cita?' } %></td>
         </tr>
       <% end %>
