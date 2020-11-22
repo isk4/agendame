@@ -1,7 +1,5 @@
 <%= provide :new_appointment, "active" %>
 
-<h2 class="m-5">Agendar:</h2>
-
 <div class="d-flex flex-column-reverse flex-md-row justify-content-around">
     <div class="mx-auto" id="calendar"></div>
     <div class="mx-auto pb-5">
@@ -11,4 +9,5 @@
 
 <script>
     renderCalendar();
+    getAvailableHours();
 </script>

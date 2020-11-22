@@ -24,6 +24,12 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+
+    if params[:date].present?
+
+      result = DateGetter.new("11:00", "19:00", params[:date], params[:service_id]).get_possible_dates
+      render json: result
+    end
   end
 
   # GET /appointments/1/edit

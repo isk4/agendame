@@ -1,32 +1,49 @@
 <%= form_with(model: appointment, local: true) do |form| %>
-  <% if appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+  <div>
+    <p class="font-weight-bold">Primero selecciona el tipo de servicio y fecha de tu cita</p>
+    <% if appointment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(appointment.errors.count, "error") %> prohibieron que esta cita se guardara:</h2>
 
-      <ul>
-      <% appointment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="d-flex">
+      <div class="container p-3 d-flex flex-column">
+        <div class="field d-flex justify-content-between">
+          <%= form.label :service_id, "Tipo de servicio:" %>
+          <%= form.collection_select(:service_id, @services, :id, :name) %>
+        </div>
+
+        <div class="field d-flex justify-content-between">
+          <%= form.label :date, "Fecha:" %>
+          <div><%= form.date_select :date %></div>
+        </div>
+
+      <button id="get-available-hours" class="btn btn-success">Consultar horarios<br>disponibles</button>
+      </div>
+
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :service_id, "Elija el tipo de servicio" %>
-    <%= form.collection_select(:service_id, @services, :id, :name) %>
   </div>
 
-  <div class="field">
-    <%= form.label :date, "Fecha" %>
-    <%= form.date_select :date %>
+  <div class="mt-5">
+    <p class="font-weight-bold">Elige un horario disponible</p>
+
+    <div id="time-select" class="d-flex flex-column p-3">
+      <div class="d-flex justify-content-between">
+        <label for="appointment_time">Horarios:</label>
+        <select name="appointment[time]" id="appointment_time" required>
+          <option selected value="">Selecciona</option>
+        </select>
+      </div>
+
+      <%= form.submit "¡Agendar!", class: "my-2 p-3 font-weight-bold btn btn-outline-info" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :time, "Hora" %>
-    <%= form.select(:time, @available_hours) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Agendar" %>
-  </div>
 <% end %>
