@@ -16,6 +16,7 @@ function renderCalendar() {
         let calendar = new FullCalendar.Calendar(calendarDiv, {
             events: data,
             eventColor: '#ff543e',
+            expandRows: true,
             locale: 'es',
             initialView: 'timeGridWeek',
             themeSystem: 'bootstrap',
@@ -40,7 +41,7 @@ function renderCalendar() {
                 meridiem: 'short'
             },
             slotMinTime: '11:00',
-            slotMaxTime: '20:00'
+            slotMaxTime: '19:00'
         });
         
         calendar.render();
