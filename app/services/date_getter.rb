@@ -18,7 +18,7 @@ class DateGetter
     result = possible_starts.reject do |current_start|
       current_end = current_start + @service.duration_in_minutes
       current_end > @schedule_end ||
-      [1, 2, 7].include?(current_start.wday) ||
+      [1, 2, 0].include?(current_start.wday) ||
       overlaps_appointments?(appointments, current_start, current_end)
     end
 
