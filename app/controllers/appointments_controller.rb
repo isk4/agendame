@@ -34,6 +34,11 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1/edit
   def edit
+    if params[:date].present?
+
+      result = DateGetter.new("11:00", "19:00", params[:date], params[:service_id]).get_possible_dates
+      render json: result
+    end
   end
 
   # POST /appointments
@@ -45,8 +50,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-
-        prueba = AppointmentMailer.with(appointment: @appointment).confirmation.deliver_now
+        AppointmentMailer.with(appointment: @appointment).confirmation.deliver_now
 
         format.html { redirect_to @appointment, notice: '¡Tu cita fue agendada exitosamente!' }
         format.json { render :show, status: :created, location: @appointment }
@@ -62,6 +66,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
+        @appointment.update(end: @appointment.start + @appointment.duration_in_minutes)
         format.html { redirect_to @appointment, notice: 'La cita fue actualizada con éxito.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
