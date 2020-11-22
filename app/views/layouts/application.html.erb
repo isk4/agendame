@@ -36,9 +36,9 @@
     </nav>
 
     <div id="page-content">
-        <p class="alert <%= "alert-dark" if notice.present? %>"><%= notice %></p>
-        <p class="alert <%= "alert-dark" if alert.present? %>"><%= alert %></p>
-      <%= yield %>
+      <p class="alert alert-dark <%= "d-none" unless notice.present? %>"><%= notice %></p>
+      <p class="alert alert-dark <%= "d-none" unless alert.present? %>"><%= alert %></p>
+      <div class="pt-5"><%= yield %></div>
     </div>
 
     <footer>

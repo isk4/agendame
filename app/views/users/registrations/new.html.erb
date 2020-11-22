@@ -1,4 +1,4 @@
-<div class="text-center p-3">
+<div class="text-center mx-auto w-50">
 
   <h2>Registro</h2>
 
@@ -7,17 +7,17 @@
 
     <div class="field">
       <%= f.label :name, "Nombre" %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :email, "Email" %><br />
-      <%= f.email_field :email, autocomplete: "email" %>
+      <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :phone_number, "Número de celular" %><br />
-      <%= f.text_field :phone_number, autocomplete: "Número de celular" %>
+      <%= f.text_field :phone_number, autocomplete: "Número de celular", class: "form-control" %>
     </div>
 
     <div class="field">
@@ -30,16 +30,16 @@
       <% if @minimum_password_length %>
       <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation, "Reingresa tu contraseña" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Enviar", class: "btn btn-outline-secondary" %>
+      <%= f.submit "Enviar", class: "btn btn-info" %>
     </div>
   <% end %>
 
