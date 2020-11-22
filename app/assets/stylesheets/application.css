@@ -13,6 +13,7 @@
  *= require bootstrap/dist/css/bootstrap.min
  *= require @fortawesome/fontawesome-free/css/all.min
  *= require fullcalendar/main.min
+ *= require chart.js/dist/Chart.min
  *= require_self
  */
 

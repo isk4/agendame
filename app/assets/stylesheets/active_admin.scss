@@ -5,8 +5,11 @@
 // Active Admin source.
 //
 // For example, to change the sidebar width:
-$skinLogo: url("images/logo.png") no-repeat 0 0;
+$skinLogo: image-url("logo.png");
 $skinActiveColor: #315a74;
+.site_title {
+  background-size: cover !important;
+}
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";

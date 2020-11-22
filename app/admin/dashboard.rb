@@ -2,14 +2,6 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
 
   content title: proc { I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      panel "¡Bienvenido!" do
-        
-      end
-    end
-
-    # Here is an example of a simple dashboard with columns and panels.
-    #
     columns do
       column do
         panel "Citas de hoy" do
@@ -28,18 +20,22 @@ ActiveAdmin.register_page "Dashboard" do
                 td appointment.client_phone_number
               end
             end
-            
           end
         end
       end
 
       column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
+        panel "Totalidad de citas agrupadas por día de la semana" do
+          column_chart Appointment.group_by_day_of_week(:start, format: "%a", week_start: :monday).count, xtitle: "Día de la semana", ytitle: "Cantidad de citas"
+        end
+
+        panel "Totalidad de citas agrupadas por tipo de servicio" do
+          result = Service.all.map do |service|
+            [service.name, service.appointments.count]
+          end
+          pie_chart result
         end
       end
-
     end
-
   end
 end

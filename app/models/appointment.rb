@@ -2,7 +2,7 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :service
 
-  scope :of_date, -> (date) { where(start: date.all_day) }
+  scope :of_date, -> (date) { where(start: date.all_day).order(start: :desc) }
 
   def client_name
     self.user.name
