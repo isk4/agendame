@@ -11,32 +11,34 @@ class AppointmentsController < ApplicationController
       date = Date.parse(params[:date])
       @appointments = Appointment.of_date(date)
     else
-      #@appointments = Appointment.where(user_id: current_user.id).order(start: :desc)
-      @appointments = Appointment.all
+      @future_appointments = Appointment.from_user(current_user).future_appointments
+      @past_appointments = Appointment.from_user(current_user).past_appointments
     end
   end
 
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    redirect_to root_path, alert: '¡Ups! No deberías estar haciendo eso.' if @appointment.user_id != current_user.id
   end
 
   # GET /appointments/new
   def new
     @appointment = Appointment.new
 
-    if params[:date].present?
-
-      result = DateGetter.new("11:00", "19:00", params[:date], params[:service_id]).get_possible_dates
+    if params[:date].present? && params[:service_id].present?
+      result = DateGetter.new('11:00', '19:00', params[:date], params[:service_id]).get_possible_dates
       render json: result
     end
   end
 
   # GET /appointments/1/edit
   def edit
+    redirect_to root_path, alert: '¡Ups! No deberías estar haciendo eso.' if @appointment.user_id != current_user.id
+
     if params[:date].present?
 
-      result = DateGetter.new("11:00", "19:00", params[:date], params[:service_id]).get_possible_dates
+      result = DateGetter.new('11:00', '19:00', params[:date], params[:service_id]).get_possible_dates
       render json: result
     end
   end
@@ -98,19 +100,19 @@ class AppointmentsController < ApplicationController
 
     def set_available_hours
       @available_hours = [
-        "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00",
-        "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"
+        '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00',
+        '16:30', '17:00', '17:30', '18:00', '18:30', '19:00'
       ]
     end
     # Only allow a list of trusted parameters through.
     def appointment_params
       p = params.require(:appointment).permit(:date, :time, :service_id)
-      date = "#{p["date(3i)"]}-#{p["date(2i)"]}-#{p["date(1i)"]}"
-      time = "#{p["time"]} -0300"
+      date = "#{p['date(3i)']}-#{p['date(2i)']}-#{p['date(1i)']}"
+      time = "#{p['time']} -0300"
 
       return {
-        start: DateTime.parse(date + " " + time),
-        service_id: p["service_id"]
+        start: DateTime.parse("#{date} #{time}"),
+        service_id: p['service_id']
       }
     end
 end

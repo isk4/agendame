@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :appointments
+  resources :appointments, except: [:destroy]
   devise_for :users
 
   devise_scope :user do

@@ -2,7 +2,10 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :service
 
-  scope :of_date, -> (date) { where(start: date.all_day).order(start: :desc) }
+  scope :of_date,             -> (date) { where(start: date.all_day).order(start: :desc) }
+  scope :from_user,           -> (user_id) { where(user_id: user_id) }
+  scope :future_appointments, -> { where('start >= ?', Date.today.beginning_of_day).order(start: :desc) }
+  scope :past_appointments,   -> { where('start < ?', Date.today.beginning_of_day).order(start: :desc) }
 
   def client_name
     self.user.name
@@ -25,7 +28,7 @@ class Appointment < ApplicationRecord
   end
 
   def formatted_date
-    self.start.strftime("%d-%m-%Y")
+    self.start.strftime('%d-%m-%Y')
   end
 
   def start_time

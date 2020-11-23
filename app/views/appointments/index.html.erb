@@ -1,33 +1,62 @@
 <%= provide :appointments, "active" %>
 
 <div class="container">
-  <h1 class="mb-3">Mis citas:</h1>
+  <h2 class="mb-3">Próximas citas:</h2>
 
-  <table class="table">
+  <table class="table text-center">
     <thead class="thead-dark">
       <tr>
         <th>Fecha</th>
-        <th>Servicio</th>
-        <th>Hora</th>
+        <th>Hora de inicio</th>
+        <th>Hora aproximada de término</th>
+        <th>Tipo de servicio</th>
         <th>Opciones</th>
-        <th></th>
+        <!--<th></th>-->
       </tr>
     </thead>
 
     <tbody>
-      <% @appointments.each do |appointment| %>
+      <% @future_appointments.each do |appointment| %>
         <tr>
           <td><%= appointment.formatted_date %></td>
-          <td><%= appointment.service_name %></td>
           <td><%= appointment.start_time %></td>
+          <td><%= appointment.end_time %></td>
+          <td><%= appointment.service_name %></td>
           <td><%= link_to 'Reagendar', edit_appointment_path(appointment) %></td>
-          <td><%= link_to 'Eliminar', appointment, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar la cita?' } %></td>
+          <!--<td><%= link_to 'Eliminar', appointment, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar la cita?' } %></td>-->
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br>
-
   <%= link_to "Agendar nueva cita", new_appointment_path, class: "btn btn-success py-2 font-weight-bold d-block mb-5" %>
+
+  <h2 class="mb-3">Citas pasadas:</h2>
+
+  <table class="table text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Fecha</th>
+        <th>Hora de inicio</th>
+        <th>Hora aproximada de término</th>
+        <th>Tipo de servicio</th>
+        <th>Opciones</th>
+        <!--<th></th>-->
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @past_appointments.each do |appointment| %>
+        <tr>
+          <td><%= appointment.formatted_date %></td>
+          <td><%= appointment.start_time %></td>
+          <td><%= appointment.end_time %></td>
+          <td><%= appointment.service_name %></td>
+          <td><%= link_to 'Reagendar', edit_appointment_path(appointment) %></td>
+          <!--<td><%= link_to 'Eliminar', appointment, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar la cita?' } %></td>-->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
