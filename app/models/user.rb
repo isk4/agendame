@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
   has_one_attached :profile_pic
-  has_many :appointments
+  has_many :appointments, dependent: :nullify
   validates :name, :email, :phone_number, presence: true
   before_save :capitalize_names
 

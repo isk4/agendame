@@ -1,5 +1,5 @@
 class AppointmentMailer < ApplicationMailer
-	default from: 'noreply@miriamdiban.com'
+	default from: 'Miriam Dibán <citas@miriamdiban.com>'
 	before_action { @appointment = params[:appointment] }
 
 	def confirmation

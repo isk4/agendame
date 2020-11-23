@@ -42,11 +42,14 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  # MAILGUN CONFIG | TO BE IMPLEMENTED
+  # MAILGUN CONFIG | TO BE IMPLEMENTEDç
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: '' }
   # config.action_mailer.delivery_method = :mailgun
   # config.action_mailer.mailgun_settings = {
-  #   api_key: 'd2811bf361c9b0ad1ec271bb346b8de5-2af183ba-17496928',
-  #   domain: 'sandboxa7737fbf36564212bb09a2d2e2ff3ce8.mailgun.org',
+  #   api_key: '',
+  #   domain: '',
   #   # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
   # }
 

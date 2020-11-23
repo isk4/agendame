@@ -63,21 +63,17 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "agendame_#{Rails.env}"
 
-  config.action_mailer.perform_caching = false
+  # Action Mailer Config
 
-  # devise mailer config
+  config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'secret-dusk-48395.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name:            ENV['EMAIL_USER'],
-    password:             ENV['EMAIL_PASSWORD'],
-    address:              'smtp.gmail.com',
-    domain:               'secret-dusk-48395.herokuapp.com',
-    port:                 587,
-    authentication:       :plain,
-    enable_starttls_auto: true
+  config.action_mailer.default_url_options = { host: ENV['MAILGUN_DOMAIN'] }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV['MAILGUN_KEY'],
+    domain: ENV['MAILGUN_DOMAIN'],
+    # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
