@@ -70,27 +70,28 @@ function getAvailableHours() {
                 Promise.reject(response);
             }
         }).then(data => {
-            let select = d.getElementById('appointment_time');
+            console.log(data)
+            let select = d.getElementById('appointment_start');
             select.innerHTML = '';
             if (data.length > 0) {
                 data.forEach(element => {
+                    let start = element.start.slice(11, 16);
+                    let end = element.end.slice(11, 16);
                     let option = d.createElement('option');
-                    option.value = element;
-                    option.textContent = element.slice(11, 16);
+                    option.value = element.start;
+                    option.textContent = `${start} - ${end}`;
                     select.appendChild(option);
                 });
             } else {
                 let option = d.createElement('option');
-                option.value = "";
-                option.textContent = "Selecciona una hora";
-                option.setAttribute("selected", "true");
+                option.value = '';
+                option.textContent = 'Selecciona una hora';
+                option.setAttribute('selected', 'true');
                 select.appendChild(option);
-                alert("¡No existen horarios disponibles para esa fecha y tipo de servicio! Por favor, intenta otra fecha.");
+                alert('¡No existen horarios disponibles para esa fecha y tipo de servicio! Por favor, intenta otra fecha.');
             }
         }).catch(error => {
             console.log(error.messages);
         })
-
-
     });
 }

@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_services, only: [:new, :edit]
   before_action :set_available_hours, only: [:new, :edit]
 
@@ -103,15 +103,9 @@ class AppointmentsController < ApplicationController
         '16:30', '17:00', '17:30', '18:00', '18:30', '19:00'
       ]
     end
+
     # Only allow a list of trusted parameters through.
     def appointment_params
-      p = params.require(:appointment).permit(:date, :time, :service_id)
-      date = "#{p['date(3i)']}-#{p['date(2i)']}-#{p['date(1i)']}"
-      time = "#{p['time']} -0300"
-
-      return {
-        start: DateTime.parse("#{date} #{time}"),
-        service_id: p['service_id']
-      }
+      params.require(:appointment).permit(:start, :service_id)
     end
 end

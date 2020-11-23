@@ -6,20 +6,19 @@ class DateGetter
   end
 
   def get_possible_dates
-    possible_starts = []
+    possible_dates = []
     i = @schedule_start
 
     while i != @schedule_end do
-      possible_starts << i
+      possible_dates << {start: i, end: i + @service.duration_in_minutes}
       i = i + 30.minutes
     end
 
     appointments = Appointment.of_date(@schedule_start)
-    result = possible_starts.reject do |current_start|
-      current_end = current_start + @service.duration_in_minutes
-      current_end > @schedule_end ||
-      [1, 2, 0].include?(current_start.wday) ||
-      overlaps_appointments?(appointments, current_start, current_end)
+    result = possible_dates.reject do |date|
+      date[:end] > @schedule_end ||
+      [1, 2, 0].include?(date[:start].wday) ||
+      overlaps_appointments?(appointments, date[:start], date[:end])
     end
 
     return result
