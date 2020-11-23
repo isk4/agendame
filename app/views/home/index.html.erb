@@ -4,8 +4,8 @@
     <h3>¡Bienvenid@, <%= current_user.name %>!</h3>
 
     <div id="profile-pic">
-        <% url = current_user.profile_pic.attachment.nil? ? image_path("default-avatar.png") : current_user.profile_pic_url %>
-        <img class="w-100" src="<%= url %>" alt="Foto de perfil">
+        <% avatar_url = current_user.profile_pic.attachment.nil? ? image_path("default-avatar.png") : current_user.profile_pic_url %>
+        <img class="w-100" src="<%= avatar_url %>" alt="Foto de perfil">
     </div>
 
     <div class="my-4 text-center d-flex flex-column">
