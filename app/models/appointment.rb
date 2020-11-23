@@ -1,6 +1,8 @@
 class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :service
+  before_save :set_end
+  before_update :set_end
 
   scope :of_date,             -> (date) { where(start: date.all_day).order(start: :desc) }
   scope :from_user,           -> (user_id) { where(user_id: user_id) }
@@ -37,5 +39,11 @@ class Appointment < ApplicationRecord
 
   def end_time
     self.end.to_s[10..15]
+  end
+
+  private
+
+  def set_end
+    self.end = self.start + self.duration_in_minutes
   end
 end

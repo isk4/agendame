@@ -4,11 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
-
   has_one_attached :profile_pic
   has_many :appointments
+  validates :name, :email, :phone_number, presence: true
+  before_save :capitalize_names
 
   def profile_pic_url
     self.profile_pic.attachment.service_url
+  end
+
+  private
+
+  def capitalize_names
+    self.name = self.name.titlecase
   end
 end

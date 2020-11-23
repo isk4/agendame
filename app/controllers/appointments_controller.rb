@@ -7,12 +7,12 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    if params[:date].present?
-      date = Date.parse(params[:date])
-      @appointments = Appointment.of_date(date)
-    else
-      @future_appointments = Appointment.from_user(current_user).future_appointments
-      @past_appointments = Appointment.from_user(current_user).past_appointments
+    respond_to do |format|
+      format.html do
+        @future_appointments = Appointment.from_user(current_user).future_appointments
+        @past_appointments = Appointment.from_user(current_user).past_appointments
+      end
+      format.json { @appointments = Appointment.all }
     end
   end
 
@@ -48,7 +48,6 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
-    @appointment.end = @appointment.start + @appointment.duration_in_minutes
 
     respond_to do |format|
       if @appointment.save
