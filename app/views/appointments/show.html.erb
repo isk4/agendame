@@ -1,17 +1,25 @@
-<p>
-  <strong>Tipo de servicio:</strong>
-  <%= @appointment.service_name %>
-</p>
+<div class="ml-5">
+  <h2 class="mb-4">¡Muchas gracias!</h2>
 
-<p>
-  <strong>Inicio de la cita:</strong>
-  <%= @appointment.start.to_s[0..15] %>
-</p>
+  <p>
+    <strong>Tipo de servicio:</strong>
+    <%= @appointment.service_name %>
+  </p>
 
-<p>
-  <strong>Término de la cita:</strong>
-  <%= @appointment.end.to_s[0..15] %>
-</p>
+  <p>
+    <strong>Fecha:</strong>
+    <%= @appointment.formatted_date %>
+  </p>
 
-<%#= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Atrás', root_path, class: "btn btn-light font-weight-bold mt-3 ml-5" %>
+  <p>
+    <strong>Inicio de la cita:</strong>
+    <%= @appointment.start_time %>
+  </p>
+
+  <p>
+    <strong>Término de la cita:</strong>
+    <%= @appointment.end_time %>
+  </p>
+
+  <%= link_to 'Volver al principio', root_path, class: "btn btn-info font-weight-bold mt-3" %>
+</div>
