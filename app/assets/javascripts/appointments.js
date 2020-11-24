@@ -45,7 +45,6 @@ function renderCalendar() {
         });
         
         calendar.render();
-        console.log(data);
     }).catch(error => {
         console.log(error.messages);
     });
@@ -70,7 +69,6 @@ function getAvailableHours() {
                 Promise.reject(response);
             }
         }).then(data => {
-            console.log(data)
             let select = d.getElementById('appointment_start');
             select.innerHTML = '';
             if (data.length > 0) {
