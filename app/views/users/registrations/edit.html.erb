@@ -1,6 +1,6 @@
 <%= provide :edit_user, "active" %>
 
-<div class="container w-75">
+<div class="mx-auto user-form">
   <h2>Editar cuenta</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-group" }) do |f| %>

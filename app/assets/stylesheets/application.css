@@ -54,9 +54,17 @@
     width: 50%;
  }
 
+ .user-form {
+     width: 50%;
+ }
+
  @media (max-width: 768px) {
      #calendar {
          width: 80%;
          margin-bottom: 30px;
+     }
+
+     .user-form {
+        width: 80%;
      }
  }
