@@ -25,15 +25,16 @@
      background-color:#315a74;
  }
 
+ #page-content {
+     margin-top: 126px;
+     height: 100%;
+ }
+
  #profile-pic {
      width: 100px;
      height: 100px;
      border-radius: 50%;
      overflow: hidden;
- }
-
- #page-content {
-     margin-top: 126px;
  }
 
  #brand-logo {

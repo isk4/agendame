@@ -1,16 +1,16 @@
 <%= provide :home, "active" %>
 
 <div class="container">
-    <h3>¡Bienvenid@, <%= current_user.name %>!</h3>
+  <h3>¡Bienvenid@, <%= current_user.name %>!</h3>
 
-    <div id="profile-pic">
-        <% avatar_url = current_user.profile_pic.attachment.nil? ? image_path("default-avatar.png") : current_user.profile_pic_url %>
-        <img class="w-100" src="<%= avatar_url %>" alt="Foto de perfil">
-    </div>
+  <div id="profile-pic">
+    <% avatar_url = current_user.profile_pic.attachment.nil? ? image_path("default-avatar.png") : current_user.profile_pic_url %>
+    <img class="w-100" src="<%= avatar_url %>" alt="Foto de perfil">
+  </div>
 
-    <div class="my-4 text-center d-flex flex-column">
-        <%= link_to "¡Agenda una cita aquí!", new_appointment_path, class: "btn btn-success py-3 font-weight-bold" %>
-        <p class="my-4">. . . ó</p>
-        <a class="btn btn-outline-info py-3" href="https://wa.link/mdi962" target="blank">Contáctame directamente por WhatsApp</a>
+  <div class="my-4 text-center d-flex flex-column">
+    <%= link_to "¡Agenda una cita aquí!", new_appointment_path, class: "btn btn-success py-3 font-weight-bold" %>
+    <p class="my-4">. . . ó</p>
+    <a class="btn btn-outline-info py-3" href="https://wa.link/mdi962" target="blank">Contáctame directamente por WhatsApp</a>
     </div>
 </div>
