@@ -4,8 +4,8 @@ Rollbar.configure do |config|
 
   config.access_token = ENV['ROLLBAR_ACCESS_TOKEN']
 
-  # Here we'll disable in 'test': (added development)
-  if Rails.env.test? || Rails.env.development?
+  # Here we'll disable in 'test' and 'development':
+  unless Rails.env.production?
     config.enabled = false
   end
 
