@@ -1,6 +1,6 @@
 <%= form_with(model: appointment, local: true) do |form| %>
   <div>
-    <p class="font-weight-bold">Primero selecciona el tipo de servicio y fecha de tu cita</p>
+    <p class="font-weight-bold container">Selecciona el tipo de servicio y fecha de tu cita</p>
     <% if appointment.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(appointment.errors.count, "error") %> prohibieron que esta cita se guardara:</h2>
@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="d-flex">
-      <div class="container p-3 d-flex flex-column">
+      <div class="container d-flex flex-column">
         <div class="field d-flex justify-content-between">
           <%= form.label :service_id, "Tipo de servicio:" %>
           <%= form.collection_select(:service_id, @services, :id, :name, {}, {class: "custom-select"}) %>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="mt-5">
-    <p class="font-weight-bold">Elige un horario disponible</p>
+    <p class="font-weight-bold">Elige un horario</p>
 
     <div id="time-select" class="d-flex flex-column p-3">
       <div class="d-flex justify-content-between">
@@ -42,7 +42,7 @@
         </select>
       </div>
 
-      <%= form.submit "¡Agendar!", class: "my-2 p-3 font-weight-bold btn btn-info" %>
+      <%= form.submit "¡Agendar!", class: "my-3 p-3 font-weight-bold btn btn-info" %>
     </div>
   </div>
 

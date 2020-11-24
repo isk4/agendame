@@ -1,7 +1,7 @@
 <%= provide :new_appointment, "active" %>
 
-<div class="d-flex flex-column-reverse flex-md-row justify-content-around">
-    <div class="mx-auto" id="calendar"></div>
+<div class="d-flex flex-column flex-md-row justify-content-around">
+    <div class="mx-auto pb-4" id="calendar"></div>
     <div class="mx-auto pb-5">
         <%= render 'form', appointment: @appointment %>
     </div>

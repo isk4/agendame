@@ -1,6 +1,6 @@
 <%= provide :edit_user, "active" %>
 
-<div class="container w-50">
+<div class="container w-75">
   <h2>Editar cuenta</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-group" }) do |f| %>
@@ -13,7 +13,7 @@
 
     <div class="field">
       <%= f.label :profile_pic %><br />
-      <%= f.file_field :profile_pic, class: "form-control" %>
+      <%= f.file_field :profile_pic%>
     </div>
 
     <div class="field">
@@ -50,13 +50,13 @@
     </div>
 
     <div class="text-center actions">
-      <%= f.submit "Enviar", class: "btn btn-outline-dark" %>
+      <%= f.submit "Enviar", class: "btn btn-info" %>
     </div>
   <% end %>
 
-  <div class="border border-danger rounded px-4 py-3 my-3">
+  <div class="border border-danger rounded px-4 py-3 my-3 text-center">
     <h3>Cancelar mi cuenta</h3>
     <p>PRECAUCIÓN: Presionando el botón de abajo eliminará todo registro suyo en la página.</p>
-    <%= button_to "QUIERO CANCELAR MI CUENTA", registration_path(resource_name), data: { confirm: "¿Estás seguro de que quieres cancelar tu cuenta?" }, method: :delete, class: "btn btn-danger" %>
+    <%= button_to "QUIERO\nCANCELAR MI CUENTA", registration_path(resource_name), data: { confirm: "¿Estás seguro de que quieres cancelar tu cuenta?" }, method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
