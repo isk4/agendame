@@ -7,22 +7,22 @@
     <%= render "users/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label :name %><br>
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :profile_pic %><br />
+      <%= f.label :profile_pic %><br>
       <%= f.file_field :profile_pic%>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email %><br>
       <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :phone_number, "Número de celular" %><br />
+      <%= f.label :phone_number, "Número de celular" %><br>
       <%= f.text_field :phone_number, autocomplete: "Número de celular", class: "form-control" %>
     </div>
 
@@ -32,20 +32,20 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :password %> <i>(dejar en blanco si no desea cambiarla)</i><br />
+      <%= f.label :password %> <i><br>(dejar en blanco si no desea cambiarla)</i><br>
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %> caracteres mínimo</em>
+        <em>* mínimo <%= @minimum_password_length %> caracteres</em>
       <% end %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :current_password, "Contaraseña Actual" %> <i>(necesitamos tu contraseña actual para guardar los cambios)</i><br />
+      <%= f.label :current_password, "Contaraseña Actual" %><i><br>(necesitamos tu contraseña actual para guardar los cambios)</i><br>
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
     </div>
 

@@ -6,22 +6,22 @@
     <%= render "users/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :name, "Nombre" %><br />
+      <%= f.label :name, "Nombre" %><br>
       <%= f.text_field :name, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :email, "Email" %><br />
+      <%= f.label :email, "Email" %><br>
       <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :phone_number, "Número de celular" %><br />
+      <%= f.label :phone_number, "Número de celular" %><br>
       <%= f.text_field :phone_number, autocomplete: "Número de celular", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :profile_pic, "Sube una foto de perfil (opcional)" %><br />
+      <%= f.label :profile_pic, "Sube una foto de perfil (opcional)" %><br>
       <%= f.file_field :profile_pic %>
     </div>
 
@@ -29,12 +29,12 @@
       <%= f.label :password, "Contraseña" %>
       <% if @minimum_password_length %>
       <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
-      <% end %><br />
+      <% end %><br>
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "Reingresa tu contraseña" %><br />
+      <%= f.label :password_confirmation, "Reingresa tu contraseña" %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
 

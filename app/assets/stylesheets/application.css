@@ -55,7 +55,7 @@
  }
 
  .user-form {
-     width: 50%;
+     width: 400px;
  }
 
  @media (max-width: 768px) {
