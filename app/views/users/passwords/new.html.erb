@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="mx-auto text-center user-form">
   <h2>¿Olvidaste tu contraseña?</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -6,13 +6,13 @@
 
     <div class="field">
       <%= f.label :email, "Ingresa tu email" %><br>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Enviar instrucciones para reestablecer la contraseña" %>
+      <%= f.submit "Enviar instrucciones para reestablecer la contraseña", class: "btn btn-info" %>
     </div>
   <% end %>
 
-  <%= render "users/shared/links" %>
+  <div class="mb-4"><%= render "users/shared/links" %></div>
 </div>
