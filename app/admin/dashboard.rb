@@ -17,11 +17,11 @@ ActiveAdmin.register_page "Dashboard" do
               if Appointment.of_date(Date.today).length == 0
                 td "No tienes citas para hoy"
               else
-                Appointment.of_date(Date.today).map do |appointment|
+                Appointment.all.map do |appointment|
                   td appointment.start_time + " - " + appointment.end_time
-                  td appointment.client_name
+                  td appointment.user.present? ? appointment.client_name : "Cliente borrado"
                   td appointment.service_name
-                  td appointment.client_phone_number
+                  td appointment.user.present? ? appointment.client_phone_number : "Cliente borrado"
                 end
               end
             end
