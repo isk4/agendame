@@ -13,10 +13,12 @@ ActiveAdmin.register_page "Dashboard" do
               th "Número de teléfono"
             end
             
-            tr do
-              if Appointment.of_date(Date.today).length == 0
+            if Appointment.of_date(Date.today).length == 0
+              tr do
                 td "No tienes citas para hoy"
-              else
+              end
+            else
+              tr do
                 Appointment.of_date(Date.today).map do |appointment|
                   td appointment.start_time + " - " + appointment.end_time
                   td appointment.user.present? ? appointment.client_name : "Cliente borrado"
