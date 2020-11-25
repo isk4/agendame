@@ -50,6 +50,28 @@ function renderCalendar() {
     });
 }
 
+function resetHoursSelect() {
+    let hoursSelect = d.getElementById('appointment_start');
+
+    let serviceSelect = d.getElementById('appointment_service_id');
+    let dateSelect1 = d.getElementById('appointment_date_1i');
+    let dateSelect2 = d.getElementById('appointment_date_2i');
+    let dateSelect3 = d.getElementById('appointment_date_3i');
+
+    let elementsArray = [serviceSelect, dateSelect1, dateSelect2, dateSelect3];
+
+    elementsArray.forEach(element => {
+        element.addEventListener('change', () => {
+            hoursSelect.innerHTML = '';
+            let option = d.createElement('option');
+            option.value = '';
+            option.textContent = 'Selecciona';
+            option.setAttribute('selected', 'true');
+            hoursSelect.appendChild(option);
+        });
+    });
+}
+
 function getAvailableHours() {
     let button = d.getElementById('get-available-hours');
     button.addEventListener('click', e => {
@@ -69,9 +91,9 @@ function getAvailableHours() {
                 Promise.reject(response);
             }
         }).then(data => {
-            let select = d.getElementById('appointment_start');
-            select.innerHTML = '';
             if (data.length > 0) {
+                let select = d.getElementById('appointment_start');
+                select.innerHTML = '';
                 data.forEach(element => {
                     let start = element.start.slice(11, 16);
                     let end = element.end.slice(11, 16);
@@ -81,11 +103,7 @@ function getAvailableHours() {
                     select.appendChild(option);
                 });
             } else {
-                let option = d.createElement('option');
-                option.value = '';
-                option.textContent = 'Selecciona una hora';
-                option.setAttribute('selected', 'true');
-                select.appendChild(option);
+                resetHoursSelect();
                 alert('¡No existen horarios disponibles para esa fecha y tipo de servicio! Por favor, intenta otra fecha.');
             }
         }).catch(error => {
