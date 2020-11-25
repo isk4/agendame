@@ -12,12 +12,17 @@ ActiveAdmin.register_page "Dashboard" do
               th "Servicio"
               th "Número de teléfono"
             end
-            Appointment.of_date(Date.today).map do |appointment|
-              tr do
-                td appointment.start_time + " - " + appointment.end_time
-                td appointment.client_name
-                td appointment.service_name
-                td appointment.client_phone_number
+            
+            tr do
+              if Appointment.of_date(Date.today).length == 0
+                td "No tienes citas para hoy"
+              else
+                Appointment.of_date(Date.today).map do |appointment|
+                  td appointment.start_time + " - " + appointment.end_time
+                  td appointment.client_name
+                  td appointment.service_name
+                  td appointment.client_phone_number
+                end
               end
             end
           end
