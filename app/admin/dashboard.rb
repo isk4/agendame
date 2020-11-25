@@ -18,8 +18,8 @@ ActiveAdmin.register_page "Dashboard" do
                 td "No tienes citas para hoy"
               end
             else
-              tr do
-                Appointment.of_date(Date.today).map do |appointment|
+              Appointment.of_date(Date.today).map do |appointment|
+                tr do
                   td appointment.start_time + " - " + appointment.end_time
                   td appointment.user.present? ? appointment.client_name : "Cliente borrado"
                   td appointment.service_name
