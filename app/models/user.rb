@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :profile_pic
   has_many :appointments, dependent: :nullify
   validates :name, :email, :phone_number, presence: true
-  validates :phone_number, format: { with: /\A\+56[0-9]{9}/, message: 'no es válido. Ingresa un número chileno con el formato "+56XXXXXXXXX"'  }
+  validates :phone_number, format: { with: /\A\+56[0-9]{9}\z/, message: 'no es válido. Ingresa un número chileno con el formato "+56XXXXXXXXX"'  }
   before_save :capitalize_names
 
   def profile_pic_url
