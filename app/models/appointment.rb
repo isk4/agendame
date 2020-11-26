@@ -10,7 +10,7 @@ class Appointment < ApplicationRecord
   scope :past_appointments,   -> { where('start < ?', Date.today.beginning_of_day).order(start: :desc) }
 
   def client_name
-    self.user.name
+    self.user.present? ? self.user.name : "Usuario borrado"
   end
 
   def service_name
@@ -22,7 +22,7 @@ class Appointment < ApplicationRecord
   end
 
   def client_phone_number
-    self.user.phone_number
+    self.user.present? ? self.user.phone_number : "Usuario borrado"
   end
 
   def client_email

@@ -21,9 +21,9 @@ ActiveAdmin.register_page "Dashboard" do
               Appointment.of_date(Date.today).map do |appointment|
                 tr do
                   td appointment.start_time + " - " + appointment.end_time
-                  td appointment.user.present? ? appointment.client_name : "Cliente borrado"
+                  td appointment.client_name
                   td appointment.service_name
-                  td appointment.user.present? ? appointment.client_phone_number : "Cliente borrado"
+                  td appointment.client_phone_number
                 end
               end
             end
